@@ -1,0 +1,7 @@
+services:
+  dockerTomcat:
+    image: tomcat
+    volumes:
+      - ./target:/usr/local/tomcat/webapps
+    ports:
+      - 8090:8080

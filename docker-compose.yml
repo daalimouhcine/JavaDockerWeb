@@ -2,6 +2,18 @@ services:
   dockerTomcat:
     image: tomcat
     volumes:
-      - ./target:/usr/local/tomcat/webapps
+        - ./target:/usr/local/tomcat/webapps
     ports:
       - 8090:8080
+
+  dockerDB:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD: 1234
+      - POSTGRES_DB: dockerpsql
+    volumes:
+      - dbVolumes:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+volumes:
+  dbVolumes:
